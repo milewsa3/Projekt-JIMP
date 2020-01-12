@@ -1,10 +1,13 @@
 #include "makespl.h"
+#include "piv_ge_solver.h"
 
-void
-make_spl (points_t * pts, spline_t * spl)
+#include <stdio.h>
+#include <stdlib.h>
+
+void make_spl(points_t * pts, spline_t * spl)
 {
 
-  if (pts->n < 2 || alloc_spl (spl, 1)) {
+if (pts->n < 2 || alloc_spl (spl, 1)) {
     spl->n = 0;
     return;
   }
@@ -16,4 +19,5 @@ make_spl (points_t * pts, spline_t * spl)
     spl->f2[0] = spl->f3[0] = 0;
     spl->n = 1;
   }
-}
+		
+}	
