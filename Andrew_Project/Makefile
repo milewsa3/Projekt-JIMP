@@ -17,7 +17,7 @@ interpolator.o: makespl.h points.h gaus/piv_ge_solver.h
 	$(CC) -I gaus -c interpolator.c
 
 w_hermita.o: makespl.h points.h gaus/piv_ge_solver.h
-	$(CC) -I gaus -c w_hermita.c -DDEBUG -ggdb
+	$(CC) -I gaus -c w_hermita.c 
 
 .PHONY: clean
 

@@ -39,7 +39,7 @@ value_spl (spline_t * spl, double x)
 
 double lg_n(int s,double x)
 {
-	if(s==0)
+	/*if(s==0)
 		return 1;
 	else if(s==1)
 		return 2*x;
@@ -56,7 +56,16 @@ double lg_n(int s,double x)
 	else if (s==7)
 		return 128*x*x*x*x*x*x*x -1344*x*x*x*x*x + 3360*x*x*x -1680*x;
 	else 
+		return 1;*/
+
+
+	if(s==0)
 		return 1;
+	else if(s==1)
+		return 2*x;
+	else
+		return 2*x*lg_n(s-1,x) - 2*s-1*lg_n(s-2,x);
+		
 }
 
 double fi(int i, double x)
@@ -101,7 +110,7 @@ double d3fi(double a, double b, int n, int i, double x)
 }
 
 
-/*void draw_base(int i)
+void draw_base(int i)
 {
 	FILE *out = fopen("debug_base", "w");
 	if (out == NULL) {
@@ -116,7 +125,7 @@ double d3fi(double a, double b, int n, int i, double x)
 			fprintf(out, "%lf %lf\n", x + k * dx, fi(j, x + k * dx));
 
 	fclose(out);
-}*/
+}
 
 void make_spl(points_t * pts, spline_t * spl)
 {
@@ -170,5 +179,5 @@ void make_spl(points_t * pts, spline_t * spl)
 		}
 	}
 
-	free_matrix(eqs);
+	//free_matrix(eqs);
 }
